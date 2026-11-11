@@ -1,6 +1,8 @@
 import SwiftUI
 import Combine
 
+//model
+
 enum GoalStatus {
     case active
     case completed
@@ -41,7 +43,6 @@ class LearningViewModel: ObservableObject {
     
     
     private let calendar = Calendar.current
-  //  private let today = Date()
     
     var todayStatus: String {
            let dayKey = calendar.startOfDay(for: currentDate)
@@ -264,8 +265,7 @@ struct OnboardingView: View {
         VStack(spacing: 14) {
        // NavigationLink(destination: ActivityView(vm: vm)) {
             Button(action: {vm.startNewGoal()
-                            showActivityPage = true
-            }) {
+                showActivityPage = true}) {
                 Text("Start Learning")
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white)
