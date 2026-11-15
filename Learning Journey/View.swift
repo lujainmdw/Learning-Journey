@@ -1,3 +1,4 @@
+/*
 import SwiftUI
 import Combine
 
@@ -301,6 +302,8 @@ struct ActivityView: View {
                     .padding(.bottom, 24)
                 }
               
+            
+            
        //for testing
             HStack {
             Text("Day \(vm.currentDayIndex) of \(vm.goalDays)")
@@ -535,4 +538,4 @@ struct UpdateGoalView: View {
     #Preview {
         OnboardingView()
     }
-
+ */
