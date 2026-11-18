@@ -19,7 +19,7 @@ Need a break? Use a **Freeze** to protect your streak on days you don't feel lik
 Personalize the app's look and feel with a **theme color picker**, letting you switch between curated color presets that dynamically update buttons, highlights, and accents across the app
 
 ### 📱 Home Screen Widget
-Keep your streak top-of-mind without even opening the app—view your current streak progress at a glance directly from your iOS Home Screen
+Keep your streak top-of-mind without even opening the app
 
 ### 🧪 Testing Button
 Simulate the passage of time with a **debug/testing button** to fast-forward Days, making it easy to test streak updates, Freeze consumption, and the 32-hour expiration window without waiting in real time
