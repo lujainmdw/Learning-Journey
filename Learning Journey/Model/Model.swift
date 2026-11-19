@@ -31,3 +31,8 @@ struct LearningModel {
         else { return 96 }
     }
 }
+struct AppTheme {
+    var primaryColor: Color
+    
+    static let defaultTheme = AppTheme(primaryColor: .orange)
+}

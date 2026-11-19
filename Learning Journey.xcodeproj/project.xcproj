@@ -11,12 +11,57 @@
     ],
   },
   "files": [
-    { "kind": "folder", "path": "Learning Journey", "target-membership": [ "Learning Journey" ] },
+    { "path": "LogWidgetExtension.entitlements" },
     {
+      "kind": "folder",
+      "path": "Learning Journey",
+      "target-membership": [
+        "Learning Journey",
+      ],
+      "membership-exceptions": [
+        {
+          "target": "LogWidgetExtension",
+          "inclusions": [
+            "Model/Model.swift",
+            "Model/WidgetModel.swift",
+            "ViewModel/ViewModel.swift",
+            "ViewModel/Widgetvm.swift",
+            "ViewModel/colorvm.swift",
+            "view/ActivityView.swift",
+            "view/AllActivitiesCalendarView.swift",
+            "view/LogWidgetView.swift",
+            "view/OnboardingView.swift",
+            "view/UpdateGoalView.swift",
+          ],
+        },
+      ],
+    }, {
+      "kind": "folder",
+      "path": "LogWidget",
+      "target-membership": [
+        "LogWidgetExtension",
+      ],
+      "membership-exceptions": [
+        {
+          "target": "LogWidgetExtension",
+          "exclusions": [
+            "Info.plist",
+          ],
+        },
+      ],
+    }, {
+      "kind": "group",
+      "name": "Frameworks",
+      "children": [
+        { "path": "<SDK>/System/Library/Frameworks/WidgetKit.framework", "target-membership": [ "LogWidgetExtension/frameworks" ] },
+        { "path": "<SDK>/System/Library/Frameworks/SwiftUI.framework", "target-membership": [ "LogWidgetExtension/frameworks" ] },
+      ],
+    }, {
       "kind": "group",
       "name": "Products",
       "children": [
         { "path": "<PRODUCTS>/Learning Journey.app", "id": "000000000000000000000120", "type": "wrapper.application", "index": false },
+        { "path": "<PRODUCTS>/LogWidgetExtension.appex", "id": "0F93389630AC477C00FA322D", "type": "wrapper.app-extension", "index": false, "target-membership": [ { "build-phase": "Learning Journey/copy/Embed Foundation Extensions", "header-preservation": "remove-on-copy" } ] },
       ],
     },
   ],
@@ -26,14 +71,26 @@
       "id": "000000000000000100000000",
       "product": "Products/Learning Journey.app",
       "product-type": "application",
+      "dependencies": [
+        "LogWidgetExtension",
+      ],
       "build-phases": [
         "compile-sources",
         "frameworks",
         "resources",
+        {
+          "kind": "copy",
+          "name": "Embed Foundation Extensions",
+          "bundle-base-path": "plugins-directory",
+        },
       ],
       "build-settings": {
+        "ASSETCATALOG_COMPILER_APPICON_NAME": "LJ_Icon",
+        "ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS": "YES",
+        "CODE_SIGN_ENTITLEMENTS": "Learning Journey/Learning Journey.entitlements",
         "CODE_SIGN_STYLE": "Automatic",
         "CURRENT_PROJECT_VERSION": "1",
+        "DEVELOPMENT_TEAM": "833638P5AN",
         "ENABLE_APP_SANDBOX": "YES",
         "ENABLE_PREVIEWS": "YES",
         "ENABLE_USER_SELECTED_FILES": "readonly",
@@ -51,7 +108,7 @@
         "LD_RUNPATH_SEARCH_PATHS": "@executable_path/Frameworks",
         "LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]": "@executable_path/../Frameworks",
         "MARKETING_VERSION": "1.0",
-        "PRODUCT_BUNDLE_IDENTIFIER": "devplaceholder.$(PROJECT_UNIQUE_VALUE:identifier).$(PRODUCT_NAME:rfc1034identifier)",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.jojopersonalteam.LearningJourney",
         "PRODUCT_NAME": "$(TARGET_NAME)",
         "REGISTER_APP_GROUPS": "YES",
         "SDKROOT": "auto",
@@ -63,6 +120,46 @@
         "SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY": "YES",
         "SWIFT_VERSION": "5.0",
         "TARGETED_DEVICE_FAMILY": "1,2,7",
+      },
+    }, {
+      "name": "LogWidgetExtension",
+      "id": "0F93389530AC477C00FA322D",
+      "product": "Products/LogWidgetExtension.appex",
+      "product-type": "app-extension",
+      "build-phases": [
+        "compile-sources",
+        "frameworks",
+        "resources",
+      ],
+      "build-settings": {
+        "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
+        "ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME": "WidgetBackground",
+        "CODE_SIGN_ENTITLEMENTS": "LogWidgetExtension.entitlements",
+        "CODE_SIGN_STYLE": "Automatic",
+        "CURRENT_PROJECT_VERSION": "1",
+        "DEVELOPMENT_TEAM": "833638P5AN",
+        "GENERATE_INFOPLIST_FILE": "YES",
+        "INFOPLIST_FILE": "LogWidget/Info.plist",
+        "INFOPLIST_KEY_CFBundleDisplayName": "LogWidget",
+        "INFOPLIST_KEY_NSHumanReadableCopyright": "",
+        "LD_RUNPATH_SEARCH_PATHS": [
+          "$(inherited)",
+          "@executable_path/Frameworks",
+          "@executable_path/../../Frameworks",
+        ],
+        "MARKETING_VERSION": "1.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.jojopersonalteam.LearningJourney.LogWidget",
+        "PRODUCT_NAME": "$(TARGET_NAME)",
+        "REGISTER_APP_GROUPS": "YES",
+        "SDKROOT": "iphoneos",
+        "SKIP_INSTALL": "YES",
+        "STRING_CATALOG_GENERATE_SYMBOLS": "YES",
+        "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
+        "SWIFT_EMIT_LOC_STRINGS": "YES",
+        "SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY": "YES",
+        "SWIFT_VERSION": "5.0",
+        "TARGETED_DEVICE_FAMILY": "1,2",
+        "VALIDATE_PRODUCT[config=Release]": "YES",
       },
     },
   ],
@@ -137,5 +234,5 @@
     "XROS_DEPLOYMENT_TARGET": "27.2",
   },
   "last-upgrade": "27.0",
-  "last-swift-update": "27.0",
+  "last-swift-update": "27.2",
 }
